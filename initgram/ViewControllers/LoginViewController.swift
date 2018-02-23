@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         usernameField.delegate = self
         passwordField.delegate = self
+        passwordField.isSecureTextEntry = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -55,16 +56,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         newUser.username = usernameField.text
         newUser.password = passwordField.text
         
-        newUser.signUpInBackground{ (success: Bool, error: Error?) -> Void in
-            if success {
-                print("Created an user.")
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            } else {
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-            }
-        }
+//        newUser.signUpInBackground{ (success: Bool, error: Error?) -> Void in
+//            if success {
+//                print("Created an user.")
+//                self.performSegue(withIdentifier: "signupSegue", sender: nil)
+//            } else {
+//                if let error = error {
+//                    print(error.localizedDescription)
+//                }
+//            }
+//        }
     }
     
     /*
